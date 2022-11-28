@@ -37,6 +37,19 @@ $syms = ["£", "$", "&", "*", "_", "-"];
                 <div class="m-3">
                     <label for="length">Lunghezza Password:</label>
                     <input type="text" name="length" id="length">
+                    <div class="form-check">
+                        <label class="form-check-label" for="letters">Lettere</label>
+                        <input class="form-check-input" type="checkbox" value="true" name="letters" id="letters">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="numbers">Numeri</label>
+                        <input class="form-check-input" type="checkbox" value="true" name="numbers" id="numbers">
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="symbols">Simboli</label>
+                        <input class="form-check-input" type="checkbox" value="true" name="symbols" id="symbols">
+                    </div>
+
                 </div>
                 <div class="m-3">
                     <button class="btn btn-primary" type="submit">Invia</button>
