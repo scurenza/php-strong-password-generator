@@ -15,14 +15,15 @@ function newPassword($data)
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "z"
     ];
     for ($i = 0; $i < $data; $i++) {
-        $userPassword[$i] = $chars[rand(1, count($chars))];
-        return $userPassword;
+        $userPassword[$i] = $chars[rand(1, (count($chars) - 1))];
     }
+    var_dump($userPassword);
+    return $userPassword;
 }
 
-newPassword($data);
-var_dump($data);
-var_dump($userPassword);
+$result = newPassword($data);
+var_dump($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -46,12 +47,22 @@ var_dump($userPassword);
         <h2 class="text-center">Strong Password Generator</h2>
         <div class="form">
             <form action="index.php" method="GET">
-                <label for="length">Lunghezza Password</label>
-                <input type="text" name="length" id="length">
-                <button class="btn btn-primary" type="submit">Invia</button>
-                <button class="btn btn-secondary" type="reset">Annulla</button>
+                <div class="m-3">
+                    <label for="length">Lunghezza Password:</label>
+                    <input type="text" name="length" id="length">
+                </div>
+                <div class="m-3">
+                    <button class="btn btn-primary" type="submit">Invia</button>
+                    <button class="btn btn-secondary" type="reset">Annulla</button>
+                    <a href="index.php">Ritorna alla Home</a>
+                </div>
             </form>
-            <?php echo $userPassword; ?>
+            <div class="m-3 p-2 border border-dark d-inline">
+                <span>La tua password è: </span>
+                <?php for ($i = 0; $i < count($result); $i++) {
+                    echo $result[$i];
+                }    ?>
+            </div>
         </div>
     </section>
 </body>
