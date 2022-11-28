@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $data = intval($_GET["length"] ?? 0);
 
@@ -15,4 +16,4 @@ function newPassword($data)
     return $userPassword;
 }
 
-$result = newPassword($data);
+$_SESSION["password"] = newPassword($data);

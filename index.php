@@ -1,6 +1,7 @@
 <?php
 include_once __DIR__ . "/partials/function.php";
 
+session_start();
 
 
 $chars = [
@@ -45,11 +46,7 @@ $syms = ["£", "$", "&", "*", "_", "-"];
             </form>
             <div class="m-3 p-2 border border-dark d-inline">
                 <span>La tua password è: </span>
-                <?php
-                newPassword($data);
-                for ($i = 0; $i < count($result); $i++) {
-                    echo $result[$i];
-                }    ?>
+                <?php include __DIR__ . "/partials/password.php"; ?>
             </div>
         </div>
     </section>
