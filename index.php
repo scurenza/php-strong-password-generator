@@ -1,5 +1,5 @@
 <?php
-$data = $_GET["length"] ?? "";
+$data = intval($_GET["length"] ?? 0);
 
 $chars = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "z"
@@ -21,6 +21,7 @@ function newPassword($data)
 }
 
 newPassword($data);
+var_dump($data);
 var_dump($userPassword);
 ?>
 
