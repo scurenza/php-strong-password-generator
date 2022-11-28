@@ -1,5 +1,7 @@
 <?php
-$data = intval($_GET["length"] ?? 0);
+include_once __DIR__ . "/partials/function.php";
+
+
 
 $chars = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "z"
@@ -7,22 +9,6 @@ $chars = [
 $nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 $syms = ["£", "$", "&", "*", "_", "-"];
 
-
-function newPassword($data)
-{
-    $userPassword = [];
-    $chars = [
-        "A", "B", "C", "D", "E", "F", "G", "H", "I", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "z"
-    ];
-    for ($i = 0; $i < $data; $i++) {
-        $userPassword[$i] = $chars[rand(1, (count($chars) - 1))];
-    }
-    var_dump($userPassword);
-    return $userPassword;
-}
-
-$result = newPassword($data);
-var_dump($result);
 
 ?>
 
@@ -59,7 +45,9 @@ var_dump($result);
             </form>
             <div class="m-3 p-2 border border-dark d-inline">
                 <span>La tua password è: </span>
-                <?php for ($i = 0; $i < count($result); $i++) {
+                <?php
+                newPassword($data);
+                for ($i = 0; $i < count($result); $i++) {
                     echo $result[$i];
                 }    ?>
             </div>
